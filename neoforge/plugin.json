@@ -1,5 +1,5 @@
 {
-  "id": "forge_generators",
+  "id": "neoforge_generators",
   "weight": 30,
   "minversion": 0,
   "supportedversions": [
@@ -23,8 +23,8 @@
     2024004
   ],
   "info": {
-    "name": "All The Generators [Forge edition]",
-    "description": "This plugin adds 38 generators for Minecraft Forge, NeoForge, Fabric and Quilt from 1.12 to the latest versions.",
+    "name": "All The Generators [NeoForge edition]",
+    "description": "This plugin adds all possible generators for Minecraft NeoForge from 1.12 to the latest versions.",
     "author": "OVONSAME"
   }
 }
