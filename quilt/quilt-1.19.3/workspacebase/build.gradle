@@ -1,0 +1,56 @@
+plugins {
+    id 'maven-publish'
+    id 'org.quiltmc.loom' version '1.8.5+'
+}
+
+version = '1.0'
+group = 'com.yourname.modid'
+archivesBaseName = 'modid'
+actualmodid = '${modid}'
+java = 21
+
+repositories {
+    mavenCentral()
+    maven {
+        url = 'https://maven.quiltmc.org/repository/release/'
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:1.19.3"
+    mappings loom.officialMojangMappings()
+    modImplementation "org.quiltmc:quilt-loader:0.28.0-beta.6"
+    modImplementation "org.quiltmc.quilted-fabric-api:quilted-fabric-api:5.0.0-beta.9+0.76.0-1.19.3"
+}
+
+loom {
+    mods {
+        "${modid}" {
+            sourceSet("main")
+        }
+    }
+}
+
+processResources {
+	inputs.properties 'version': version, 'group': project.group
+
+	filesMatching('quilt.mod.json') {
+		expand 'version': version, 'group': project.group
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = 'UTF-8'
+    it.options.release = java
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+
+    withSourcesJar()
+}
+
+jar {
+    from "LICENSE"
+}

@@ -1,0 +1,61 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:5.1.+'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'eclipse'
+
+version = "1.0"
+group = "com.yourname.modid"
+archivesBaseName = "modid"
+actualmodid = '${modid}'
+java = 8
+
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = java
+
+minecraft {
+	mappings channel: 'official', version: '${generator.getGeneratorMinecraftVersion()}'
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+
+            mods {
+                "${modid}" {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        server {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+
+            mods {
+                "${modid}" {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+sourceSets {
+    main { output.resourcesDir = output.classesDir }
+}
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.16.5-${generator.getGeneratorBuildFileVersion()}'
+}
+
+apply from: 'mcreator.gradle'
