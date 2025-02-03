@@ -1,8 +1,7 @@
 plugins {
     id 'eclipse'
-    id 'net.neoforged.moddev' version '1.0.21'
+    id 'net.neoforged.moddev' version '2.0.77'
     id 'java-library'
-    id 'maven-publish'
     id 'idea'
 }
 
@@ -14,14 +13,13 @@ version = '1.0'
 group = 'com.yourname.modid'
 base.archivesName = "modid"
 actualmodid = '${modid}'
-java = 21
 
 repositories {
     mavenLocal()
     mavenCentral()
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(java)
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 neoForge {
     version = "${generator.getGeneratorBuildFileVersion()}"

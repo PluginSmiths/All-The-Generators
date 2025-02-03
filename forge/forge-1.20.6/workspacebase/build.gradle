@@ -9,9 +9,8 @@ version = '1.0'
 group = 'com.yourname.modid'
 archivesBaseName = 'modid'
 actualmodid = '${modid}'
-java = 21
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(java)
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 minecraft {
     mappings channel: 'official', version: '${generator.getGeneratorMinecraftVersion()}'

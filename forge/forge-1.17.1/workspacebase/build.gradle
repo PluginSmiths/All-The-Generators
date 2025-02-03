@@ -15,9 +15,8 @@ version = "1.0"
 group = "com.yourname.modid"
 archivesBaseName = "modid"
 actualmodid = '${modid}'
-java = 16
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = java
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = 16
 
 minecraft {
 	mappings channel: 'official', version: '${generator.getGeneratorMinecraftVersion()}'

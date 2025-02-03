@@ -7,7 +7,6 @@ version = '1.0'
 group = 'com.yourname.modid'
 archivesBaseName = 'modid'
 actualmodid = '${modid}'
-java = 21
 
 repositories {
     mavenCentral()
@@ -41,7 +40,7 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
     it.options.encoding = 'UTF-8'
-    it.options.release = java
+    it.options.release = 21
 }
 
 java {

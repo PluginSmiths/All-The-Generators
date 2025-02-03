@@ -1,6 +1,6 @@
 name: NeoForge for @minecraft (@buildfileversion)
 status: stable
-buildfileversion: 21.3.58
+buildfileversion: 21.3.60
 
 java_models:
   key: mojmap-1.21.x
